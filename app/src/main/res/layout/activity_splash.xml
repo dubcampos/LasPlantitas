@@ -5,6 +5,7 @@
     android:id="@+id/Splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/planta"
     tools:context=".Splash">
 
 </android.support.constraint.ConstraintLayout>
