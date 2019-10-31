@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Camara"
+        android:icon="@drawable/ic_camera_black_24dp"></item>
+    <item android:title="Historial"
+        android:icon="@drawable/ic_history_black_24dp"></item>
+    <item android:title="Bsuqueda"
+        android:icon="@drawable/ic_search_black_24dp"></item>
+    <item android:title="Calculadora"
+        android:icon="@drawable/ic_dialpad_black_24dp"></item>
+</menu>
