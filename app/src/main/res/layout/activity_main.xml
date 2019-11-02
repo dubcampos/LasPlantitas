@@ -7,8 +7,6 @@
     tools:context=".MainActivity">
 
 
-    =======
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,12 +22,13 @@
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/button_nav"
+    <include
+        layout="@layout/activity_menu_navegacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/principal"/>
->>>>>>> ac9260d7b51c96ac819521db001cec9c389cbe96
+        android:layout_gravity="bottom"
+        />
+
+
 
 </RelativeLayout>
