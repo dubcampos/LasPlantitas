@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorVerde">#008F39</color>
+    <color name="gradientStartColor">#4e4744</color>
+    <color name="gradientEndColor">#211915</color>
 
 </resources>
