@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.codigo.recplants.MainActivity;
@@ -19,6 +20,9 @@ public class BusquedaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_busqueda);
         BotonNav = findViewById(R.id.button_nav1);
         BotonNav.setOnNavigationItemSelectedListener(navListener);
+        Menu menu = BotonNav.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
