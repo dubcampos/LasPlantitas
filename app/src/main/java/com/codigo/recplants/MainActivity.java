@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.codigo.recplants.Actividades.BusquedaActivity;
 import com.codigo.recplants.Actividades.CalculadoraActivity;
+import com.codigo.recplants.Actividades.Camara;
 import com.codigo.recplants.Actividades.HistorialActivity;
 import com.codigo.recplants.Fragmentos.BusquedaFragment;
 import com.codigo.recplants.Fragmentos.CalculadoraFragment;
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
+                Intent intent=new Intent(MainActivity.this,Camara.class);
+                startActivity(intent);
+
             } else if (itemId == R.id.opcion_historial) {
                 startActivity(new Intent(MainActivity.this, HistorialActivity.class));
             } else if (itemId == R.id.opcion_busqueda) {
