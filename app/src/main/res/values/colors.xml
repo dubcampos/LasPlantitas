@@ -6,5 +6,9 @@
     <color name="colorVerde">#008F39</color>
     <color name="gradientStartColor">#4e4744</color>
     <color name="gradientEndColor">#211915</color>
+    <color name="colorNegro">#FFFFFF</color>
+    <color name="colorNegrooscuro">#000000</color>
+    <color name="colorBlanco">#FFFFF0</color>
+
 
 </resources>
