@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
 
 public class CalculadoraActivity extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class CalculadoraActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                startActivity(new Intent(CalculadoraActivity.this, MainActivity.class));
+                startActivity(new Intent(CalculadoraActivity.this, CamaraActivity.class));
             } else if (itemId == R.id.opcion_historial) {
                 startActivity(new Intent(CalculadoraActivity.this, HistorialActivity.class));
             } else if (itemId == R.id.opcion_busqueda) {

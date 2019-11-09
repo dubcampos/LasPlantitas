@@ -1,16 +1,21 @@
 package com.codigo.recplants;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.codigo.recplants.Actividades.BusquedaActivity;
 import com.codigo.recplants.Actividades.CalculadoraActivity;
-import com.codigo.recplants.Actividades.CamaraActivity;
+import com.codigo.recplants.Actividades.Camara;
 import com.codigo.recplants.Actividades.HistorialActivity;
+import com.codigo.recplants.Fragmentos.BusquedaFragment;
+import com.codigo.recplants.Fragmentos.CalculadoraFragment;
+import com.codigo.recplants.Fragmentos.HistorialFragment;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView BotonNav;
@@ -28,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                Intent intent=new Intent(MainActivity.this,CamaraActivity.class);
+                Intent intent=new Intent(MainActivity.this,Camara.class);
                 startActivity(intent);
 
             } else if (itemId == R.id.opcion_historial) {
