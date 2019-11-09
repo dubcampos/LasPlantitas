@@ -1,43 +1,58 @@
 package com.codigo.recplants.Abaptadores;
 
+import android.content.Context;
+import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.codigo.recplants.Fragmentos.PrevencionFragment;
 import com.codigo.recplants.Fragmentos.ProcedimientoFragment;
 import com.codigo.recplants.Fragmentos.RespuestaFragment;
+import com.codigo.recplants.R;
 
-public class RespuestaTabAdapter extends FragmentPagerAdapter {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RespuestaTabAdapter extends FragmentStatePagerAdapter {
     int cantidad_tab;
+    private final List<Fragment> mFragmentList = new ArrayList<>();
+    private final List<String> mFragmentTitleList = new ArrayList<>();
+    private final List<Integer> mFragmentIconList = new ArrayList<>();
+    private Context context;
 
-    public RespuestaTabAdapter(FragmentManager fm, int cantidad_tab) {
+    public RespuestaTabAdapter(FragmentManager fm, Context context) {
         super(fm);
-        this.cantidad_tab = cantidad_tab;
+        this.context = context;
     }
 
     @Override
-    public Fragment getItem(int i) {
-        if (i == 0) {
-            return new RespuestaFragment();
-        }else if(i == 1) {
-            return new ProcedimientoFragment();
-        }else  if (i == 2) {
-            return new PrevencionFragment();
-        }
-        return null;
+    public Fragment getItem(int position) {
+        return mFragmentList.get(position);
     }
+
+    public void addFragment(Fragment fragment, String title) {
+        mFragmentList.add(fragment);
+        mFragmentTitleList.add(title);
+    }
+
 
     @Override
     public int getCount() {
-        return 3;
+        return mFragmentList.size();
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Pagina " + position;
+        return mFragmentTitleList.get(position);
 
     }
 }

@@ -11,6 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.codigo.recplants.Abaptadores.RespuestaTabAdapter;
+import com.codigo.recplants.Fragmentos.PrevencionFragment;
+import com.codigo.recplants.Fragmentos.ProcedimientoFragment;
+import com.codigo.recplants.Fragmentos.RespuestaFragment;
 import com.codigo.recplants.R;
 
 public class RespuestaActivity extends AppCompatActivity {
@@ -24,16 +27,12 @@ public class RespuestaActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.PestanaRespuesta);
         viewPager = findViewById(R.id.paginasRespuesta);
 
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        RespuestaTabAdapter adapter = new RespuestaTabAdapter(getSupportFragmentManager(), this);
+        adapter.addFragment(new RespuestaFragment(), "Diagnostico");
+        adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");
+        adapter.addFragment(new PrevencionFragment(), "Prevencion");
+        viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.addTab(tabLayout.newTab());
-        tabLayout.addTab(tabLayout.newTab());
-        tabLayout.addTab(tabLayout.newTab());
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-
-        RespuestaTabAdapter t = new RespuestaTabAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-        viewPager.setAdapter(t);
 
 
         BotonNav = findViewById(R.id.button_nav1);
