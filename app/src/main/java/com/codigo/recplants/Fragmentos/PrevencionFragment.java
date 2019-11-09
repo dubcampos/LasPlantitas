@@ -12,10 +12,10 @@ import com.codigo.recplants.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CalculadoraFragment extends Fragment {
+public class PrevencionFragment extends Fragment {
 
 
-    public CalculadoraFragment() {
+    public PrevencionFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class CalculadoraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calculadora, container, false);
+        return inflater.inflate(R.layout.fragment_prevencion, container, false);
     }
 
 }

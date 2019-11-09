@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.codigo.recplants.R;
 
-public class Camara extends AppCompatActivity {
+public class CamaraActivity extends AppCompatActivity {
     ImageView img_camara;
 
 

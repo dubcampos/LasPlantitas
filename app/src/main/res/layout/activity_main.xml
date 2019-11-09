@@ -23,12 +23,11 @@
     </android.support.constraint.ConstraintLayout>
 
     <include
-        layout="@layout/activity_menu_navegacion"
+        layout="@layout/menu_navegacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         />
-
 
 
 </RelativeLayout>
