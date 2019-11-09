@@ -15,6 +15,7 @@ import com.codigo.recplants.Actividades.CalculadoraActivity;
 import com.codigo.recplants.Actividades.CamaraActivity;
 import com.codigo.recplants.Actividades.HistorialActivity;
 import com.codigo.recplants.Actividades.RespuestaActivity;
+import com.codigo.recplants.Fragmentos.RespuestaFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                startActivity(new Intent(MainActivity.this,CamaraActivity.class));
+                startActivity(new Intent(MainActivity.this,RespuestaFragment.class));
             } else if (itemId == R.id.opcion_historial) {
                 startActivity(new Intent(MainActivity.this, RespuestaActivity.class));
             } else if (itemId == R.id.opcion_busqueda) {

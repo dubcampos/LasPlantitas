@@ -1,6 +1,7 @@
 package com.codigo.recplants.Actividades;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -14,12 +15,20 @@ import com.codigo.recplants.Abaptadores.RespuestaTabAdapter;
 import com.codigo.recplants.Fragmentos.PrevencionFragment;
 import com.codigo.recplants.Fragmentos.ProcedimientoFragment;
 import com.codigo.recplants.Fragmentos.RespuestaFragment;
+import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
 
 public class RespuestaActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     BottomNavigationView BotonNav;
+
+
+    public void ObtenerImagen(Bitmap imagen){
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("foto", imagen);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +37,9 @@ public class RespuestaActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.paginasRespuesta);
 
         RespuestaTabAdapter adapter = new RespuestaTabAdapter(getSupportFragmentManager(), this);
-        adapter.addFragment(new RespuestaFragment(), "Diagnostico");
+        RespuestaFragment rf =new RespuestaFragment();
+        rf.ra = this;
+        adapter.addFragment(rf, "Diagnostico");
         adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");
         adapter.addFragment(new PrevencionFragment(), "Prevencion");
         viewPager.setAdapter(adapter);
