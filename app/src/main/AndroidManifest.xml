@@ -17,11 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuNavegacion" />
+        <activity android:name=".Actividades.RespuestaActivity" />
         <activity android:name=".Actividades.HistorialActivity" />
         <activity android:name=".Actividades.BusquedaActivity" />
         <activity android:name=".Actividades.CalculadoraActivity" />
-        <activity android:name=".Actividades.Camara"></activity>
+        <activity android:name=".Actividades.CamaraActivity"/>
     </application>
 
 </manifest>

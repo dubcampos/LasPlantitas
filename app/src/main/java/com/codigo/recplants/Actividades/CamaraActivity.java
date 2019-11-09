@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
 
 public class CamaraActivity extends AppCompatActivity {
@@ -40,6 +41,10 @@ public class CamaraActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.e("CargarImagen","CargarImagen");
-        img_camara.setImageBitmap((Bitmap)data.getExtras().get("data"));
+        if(data != null) {
+            img_camara.setImageBitmap((Bitmap) data.getExtras().get("data"));
+        }else {
+            startActivity(new Intent(CamaraActivity.this, MainActivity.class));
+        }
     }
 }

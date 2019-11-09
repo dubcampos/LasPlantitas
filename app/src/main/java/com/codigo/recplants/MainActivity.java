@@ -11,11 +11,11 @@ import android.view.MenuItem;
 
 import com.codigo.recplants.Actividades.BusquedaActivity;
 import com.codigo.recplants.Actividades.CalculadoraActivity;
-import com.codigo.recplants.Actividades.Camara;
+
+import com.codigo.recplants.Actividades.CamaraActivity;
 import com.codigo.recplants.Actividades.HistorialActivity;
-import com.codigo.recplants.Fragmentos.BusquedaFragment;
-import com.codigo.recplants.Fragmentos.CalculadoraFragment;
-import com.codigo.recplants.Fragmentos.HistorialFragment;
+import com.codigo.recplants.Actividades.RespuestaActivity;
+
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView BotonNav;
@@ -33,11 +33,9 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                Intent intent=new Intent(MainActivity.this,Camara.class);
-                startActivity(intent);
-
+                startActivity(new Intent(MainActivity.this,CamaraActivity.class));
             } else if (itemId == R.id.opcion_historial) {
-                startActivity(new Intent(MainActivity.this, HistorialActivity.class));
+                startActivity(new Intent(MainActivity.this, RespuestaActivity.class));
             } else if (itemId == R.id.opcion_busqueda) {
                 startActivity(new Intent(MainActivity.this, BusquedaActivity.class));
             } else if (itemId == R.id.opcion_calculadora) {
