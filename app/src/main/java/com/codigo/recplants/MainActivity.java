@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                startActivity(new Intent(MainActivity.this,RespuestaFragment.class));
+                startActivity(new Intent(MainActivity.this,CamaraActivity.class));
             } else if (itemId == R.id.opcion_historial) {
                 startActivity(new Intent(MainActivity.this, HistorialActivity.class));
             } else if (itemId == R.id.opcion_busqueda) {

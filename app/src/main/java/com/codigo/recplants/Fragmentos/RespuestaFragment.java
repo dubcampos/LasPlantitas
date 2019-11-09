@@ -35,7 +35,7 @@ public class RespuestaFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_respuesta, container, false);
-        fragment = view.findViewById(R.id.img_fragmnet);
+        fragment = view.findViewById(R.id.Img_fragment);
         fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
