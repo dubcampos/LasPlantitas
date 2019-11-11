@@ -56,13 +56,25 @@ public class RespuestaActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_camara) {
-                startActivity(new Intent(RespuestaActivity.this, CamaraActivity.class));
+                Intent intent = new Intent(RespuestaActivity.this,CamaraActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivityForResult(intent, 0);
+                overridePendingTransition(0,0);
             } else if (itemId == R.id.opcion_historial) {
-                startActivity(new Intent(RespuestaActivity.this, HistorialActivity.class));
+                Intent intent = new Intent(RespuestaActivity.this, HistorialActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivityForResult(intent, 0);
+                overridePendingTransition(0,0);
             } else if (itemId == R.id.opcion_busqueda) {
-                startActivity(new Intent(RespuestaActivity.this, BusquedaActivity.class));
+                Intent intent = new Intent(RespuestaActivity.this, BusquedaActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivityForResult(intent, 0);
+                overridePendingTransition(0,0);
             } else if (itemId == R.id.opcion_calculadora) {
-                startActivity(new Intent(RespuestaActivity.this, CalculadoraActivity.class));
+                Intent intent = new Intent(RespuestaActivity.this, CalculadoraActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivityForResult(intent, 0);
+                overridePendingTransition(0,0);
             }
             return true;
         }
