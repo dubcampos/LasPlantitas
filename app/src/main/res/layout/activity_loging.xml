@@ -19,20 +19,30 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:layout_marginBottom="20dp"
-            android:text="Registrese en La comunidad YurApp"
+            android:text="Bienbenido a La comunidad YurApp"
             android:textAlignment="center"/>
 
-        <Button
-            android:id="@+id/btn_registro"
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="Ingrese su numero de telefono"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:textColor="@color/colorBlanco"
-            android:background="@drawable/estilos_botones"
+            android:ems="10"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/editText8"
+            android:layout_width="match_parent"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Registro" />
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el codigo de verificacion"
+            android:ems="10"
+            android:inputType="phone" />
 
         <Button
             android:id="@+id/btn_iniciar"
@@ -44,6 +54,18 @@
             android:background="@drawable/estilos_botones"
             android:backgroundTint="@color/colorPrimaryDark"
             android:text="Iniciar sesión"
+            android:textColor="@color/colorBlanco" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/estilos_botones"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Registrarse"
             android:textColor="@color/colorBlanco" />
 
         <TextView

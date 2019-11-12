@@ -22,6 +22,8 @@
         <activity android:name=".Actividades.BusquedaActivity" />
         <activity android:name=".Actividades.CalculadoraActivity" />
         <activity android:name=".Actividades.CamaraActivity"/>
+        <activity android:name=".Actividades.LogingActivity"/>
+        <activity android:name=".Actividades.RegistrarseActiviity"/>
     </application>
 
 </manifest>
