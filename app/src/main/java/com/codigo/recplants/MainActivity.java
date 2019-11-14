@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,10 +25,11 @@ import com.codigo.recplants.Fragmentos.RespuestaFragment;
 
 
 public class MainActivity extends AppCompatActivity {
+    FloatingActionButton btn_floating;
     BottomNavigationView BotonNav;
-    Button btn;
 
     ImageView img;
+
 
 
 
@@ -35,16 +37,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn=findViewById(R.id.button4);
         img=findViewById(R.id.imageView3);
         BotonNav = findViewById(R.id.button_nav1);
         BotonNav.setOnNavigationItemSelectedListener(navListener);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn_floating=findViewById(R.id.flotante);
+        btn_floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten=new Intent(MainActivity.this,LogingActivity.class);
-                startActivity(inten);
-
+                Intent intent=new Intent(MainActivity.this,RespuestaActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -57,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
-            if (itemId == R.id.opcion_camara) {
-                Intent intent = new Intent(MainActivity.this,CamaraActivity.class);
+            if (itemId == R.id.opcion_registro) {
+                Intent intent = new Intent(MainActivity.this,LogingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);

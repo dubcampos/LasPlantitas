@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Camara"
-        android:id="@+id/opcion_camara"
-        android:icon="@drawable/ic_camera_black_24dp"></item>
+    <item android:title="Registrarse"
+        android:id="@+id/opcion_registro"
+        android:icon="@drawable/user"></item>
     <item android:title="Historial"
         android:id="@+id/opcion_historial"
         android:icon="@drawable/ic_history_black_24dp"></item>

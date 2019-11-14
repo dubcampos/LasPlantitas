@@ -56,8 +56,8 @@ public class HistorialActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
-            if (itemId == R.id.opcion_camara) {
-                Intent intent = new Intent(HistorialActivity.this,CamaraActivity.class);
+            if (itemId == R.id.opcion_registro) {
+                Intent intent = new Intent(HistorialActivity.this,LogingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
