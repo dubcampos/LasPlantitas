@@ -8,19 +8,22 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.codigo.recplants.Abaptadores.HistorialAdapter;
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
 import com.codigo.recplants.clases.prueba;
+import com.codigo.recplants.holders.HistorialItemHolder;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class HistorialActivity extends AppCompatActivity {
+public class HistorialActivity extends AppCompatActivity implements HistorialItemHolder.HistorialListener {
     BottomNavigationView BotonNav;
     RecyclerView historialLista;
     List<prueba> datos;
@@ -40,7 +43,7 @@ public class HistorialActivity extends AppCompatActivity {
         datos.add(new prueba("sup2","su"));
         datos.add(new prueba("sup2","su"));
         datos.add(new prueba("sup2","su"));
-        historialLista.setAdapter(new HistorialAdapter(datos,HistorialActivity.this));
+        historialLista.setAdapter(new HistorialAdapter(datos,HistorialActivity.this, this));
         historialLista.setLayoutManager(new GridLayoutManager(this, 1));
 
         Menu menu = BotonNav.getMenu();
@@ -80,4 +83,13 @@ public class HistorialActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    @Override
+    public void historialClick(int position) {
+        Toast.makeText(this,"hola", Toast.LENGTH_LONG).show();
+        Log.e("error","i");
+        datos.get(position);
+        Intent intent = new Intent(HistorialActivity.this,RespuestaActivity.class);
+        startActivity(intent);
+    }
 }

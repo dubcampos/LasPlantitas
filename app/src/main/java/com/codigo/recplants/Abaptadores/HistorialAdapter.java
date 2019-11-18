@@ -15,21 +15,24 @@ import com.codigo.recplants.holders.HistorialItemHolder;
 import java.util.List;
 
 public class HistorialAdapter extends RecyclerView.Adapter<HistorialItemHolder>  {
+    private HistorialItemHolder.HistorialListener historialListener;
+
     List<prueba> datosHistorial;
     LayoutInflater inflater;
     Context context;
 
-    public HistorialAdapter(List<prueba> datosHistorial, Context context) {
+    public HistorialAdapter(List<prueba> datosHistorial, Context context, HistorialItemHolder.HistorialListener historialListener ) {
         inflater = LayoutInflater.from(context);
         this.datosHistorial = datosHistorial;
         this.context = context;
+        this.historialListener = historialListener;
     }
 
     @NonNull
     @Override
     public HistorialItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View vista = inflater.inflate(R.layout.view_item_historial,viewGroup,false);
-        return new HistorialItemHolder(vista, this);
+        return new HistorialItemHolder(vista, this, historialListener);
     }
 
     @Override

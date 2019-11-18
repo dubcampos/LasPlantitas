@@ -5,18 +5,9 @@ import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.codigo.recplants.Fragmentos.PrevencionFragment;
-import com.codigo.recplants.Fragmentos.ProcedimientoFragment;
-import com.codigo.recplants.Fragmentos.RespuestaFragment;
-import com.codigo.recplants.R;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
 
 import java.util.ArrayList;
 import java.util.List;
