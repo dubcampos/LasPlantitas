@@ -90,6 +90,7 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
         Log.e("error","i");
         datos.get(position);
         Intent intent = new Intent(HistorialActivity.this,RespuestaActivity.class);
+        intent.putExtra("abrirCamara", false);
         startActivity(intent);
     }
 }

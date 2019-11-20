@@ -22,11 +22,11 @@ import com.codigo.recplants.R;
 public class RespuestaFragment extends Fragment {
     ImageView fragment;
     public RespuestaActivity ra;
+    public boolean muestraCamara=true;
 
     public RespuestaFragment() {
+
     }
-
-
 
 
     @Override
@@ -44,9 +44,10 @@ public class RespuestaFragment extends Fragment {
             }
 
         });
-        Intent TomarFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(TomarFoto, 200);
-
+        if(muestraCamara) {
+            Intent TomarFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(TomarFoto, 200);
+        }
 
         return view;
 

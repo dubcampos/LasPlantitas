@@ -35,9 +35,14 @@ public class RespuestaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_respuesta);
         tabLayout = findViewById(R.id.PestanaRespuesta);
         viewPager = findViewById(R.id.paginasRespuesta);
-
+        Intent i = getIntent();
+        RespuestaFragment rf = new RespuestaFragment();
         RespuestaTabAdapter adapter = new RespuestaTabAdapter(getSupportFragmentManager(), this);
-        RespuestaFragment rf =new RespuestaFragment();
+        if (i.getBooleanExtra("abrirCamara",true)) {
+            rf.muestraCamara = true;
+        }else{
+            rf.muestraCamara = false;
+        }
         rf.ra = this;
         adapter.addFragment(rf, "Diagnostico");
         adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");

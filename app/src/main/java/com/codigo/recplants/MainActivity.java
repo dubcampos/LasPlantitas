@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
             } else if (itemId == R.id.opcion_busqueda) {
-                Intent intent = new Intent(MainActivity.this, LogingActivity.class);
+                Intent intent = new Intent(MainActivity.this, BusquedaActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
