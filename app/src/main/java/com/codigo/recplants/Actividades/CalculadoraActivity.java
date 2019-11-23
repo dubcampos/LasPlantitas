@@ -5,9 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
 
 public class CalculadoraActivity extends AppCompatActivity {
@@ -51,4 +53,16 @@ public class CalculadoraActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivityForResult(intent, 0);
+            overridePendingTransition(0,0);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

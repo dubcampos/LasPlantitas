@@ -4,14 +4,21 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class Splash extends AppCompatActivity {
 
-
+    ImageView im_splash;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        im_splash = findViewById(R.id.im_splash);
+        Animation aniSplash = AnimationUtils.loadAnimation(this,R.anim.splashanimacion);
+        im_splash.startAnimation(aniSplash);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

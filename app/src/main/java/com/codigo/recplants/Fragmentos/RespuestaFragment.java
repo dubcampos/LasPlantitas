@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.codigo.recplants.Actividades.CamaraActivity;
 import com.codigo.recplants.Actividades.RespuestaActivity;
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
@@ -57,7 +56,11 @@ public class RespuestaFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        fragment.setImageBitmap((Bitmap)data.getExtras().get("data"));
-        ra.ObtenerImagen((Bitmap)data.getExtras().get("data"));
+            if (data != null){
+                fragment.setImageBitmap((Bitmap)data.getExtras().get("data"));
+                ra.ObtenerImagen((Bitmap)data.getExtras().get("data"));
+            }else{
+                startActivity(new Intent(getContext(), MainActivity.class));
+            }
         }
     }

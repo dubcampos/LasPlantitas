@@ -80,7 +80,11 @@
 
             android:layout_marginBottom="20dp"
             />
-
-
+        <include
+            layout="@layout/menu_navegacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
