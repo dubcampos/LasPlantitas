@@ -12,10 +12,16 @@ import android.widget.Button;
 
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class LogingActivity extends AppCompatActivity {
     BottomNavigationView BotonNav;
     Button btng;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +30,9 @@ public class LogingActivity extends AppCompatActivity {
         BotonNav = findViewById(R.id.button_nav1);
         BotonNav.setOnNavigationItemSelectedListener(navListener);
         btng=findViewById(R.id.register);
-        btng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent t=new Intent(LogingActivity.this,RegistrarseActiviity.class);
-                startActivity(t);
-            }
-        });
+
+
+
 
     }
 
@@ -74,4 +76,6 @@ public class LogingActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
 }
+

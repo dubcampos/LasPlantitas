@@ -43,7 +43,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/estilos_botones"
             android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Enviar"
+            android:text="Enviar Codigo"
             android:textColor="@color/colorBlanco" />
 
         <EditText
@@ -66,7 +66,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/estilos_botones"
             android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Iniciar sesión"
+            android:text="Iniciar"
             android:textColor="@color/colorBlanco" />
 
         <include
