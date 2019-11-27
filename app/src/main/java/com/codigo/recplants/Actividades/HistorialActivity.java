@@ -1,13 +1,12 @@
 package com.codigo.recplants.Actividades;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -20,7 +19,6 @@ import com.codigo.recplants.R;
 import com.codigo.recplants.clases.prueba;
 import com.codigo.recplants.holders.HistorialItemHolder;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
