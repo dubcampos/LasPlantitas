@@ -3,6 +3,7 @@ package com.codigo.recplants;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 
+import com.codigo.recplants.Actividades.UsuarioLogueadoActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_registro) {
-                Intent intent = new Intent(MainActivity.this,LogingActivity.class);
+                Intent intent = new Intent(MainActivity.this, UsuarioLogueadoActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
