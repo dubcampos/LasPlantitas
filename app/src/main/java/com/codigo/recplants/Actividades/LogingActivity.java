@@ -77,5 +77,8 @@ public class LogingActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+
+
+
 }
 
