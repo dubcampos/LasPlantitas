@@ -79,17 +79,7 @@ public class UsuarioLogueadoActivity extends AppCompatActivity {
                     }
                 });
     }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivityForResult(intent, 0);
-            overridePendingTransition(0,0);
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
 
 
 

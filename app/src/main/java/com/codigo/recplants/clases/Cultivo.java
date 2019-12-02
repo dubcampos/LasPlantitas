@@ -44,4 +44,6 @@ public class Cultivo {
     public void setImagen_cultivo(String imagen_cultivo) {
         this.imagen_cultivo = imagen_cultivo;
     }
+
+
 }
