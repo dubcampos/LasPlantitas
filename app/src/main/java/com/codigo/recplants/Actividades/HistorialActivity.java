@@ -84,7 +84,7 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             int itemId = menuItem.getItemId();
             if (itemId == R.id.opcion_registro) {
-                Intent intent = new Intent(HistorialActivity.this,LogingActivity.class);
+                Intent intent = new Intent(HistorialActivity.this, UsuarioLogueadoActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);

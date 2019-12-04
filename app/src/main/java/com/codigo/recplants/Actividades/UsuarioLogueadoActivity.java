@@ -22,11 +22,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UsuarioLogueadoActivity extends AppCompatActivity {
-    FloatingActionButton btn;
+
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    public static final int RC_SIGN_IN=1;
-    List<AuthUI.IdpConfig> providers= Arrays.asList(
+    public static final int RC_SIGN_IN = 1;
+    List<AuthUI.IdpConfig> providers = Arrays.asList(
             new AuthUI.IdpConfig.EmailBuilder().build(),
             new AuthUI.IdpConfig.PhoneBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build()
@@ -36,17 +36,16 @@ public class UsuarioLogueadoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_logueado);
-        btn=findViewById(R.id.flotante2);
-        mFirebaseAuth=FirebaseAuth.getInstance();
-        mAuthListener=new FirebaseAuth.AuthStateListener() {
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user=firebaseAuth.getCurrentUser();
+                FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Toast.makeText(UsuarioLogueadoActivity.this,"Ya perdiste p kausa",Toast.LENGTH_SHORT).show();
-                }else{
-                    startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).setIsSmartLockEnabled(false).build(),RC_SIGN_IN);
+                    Toast.makeText(UsuarioLogueadoActivity.this, "Ya perdiste p kausa", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).setIsSmartLockEnabled(false).build(), RC_SIGN_IN);
                 }
 
             }
@@ -65,26 +64,15 @@ public class UsuarioLogueadoActivity extends AppCompatActivity {
         super.onPause();
         mFirebaseAuth.removeAuthStateListener(mAuthListener);
 
-
+onBackPressed();
     }
-    public void Sigout(View view) {
-        AuthUI.getInstance()
-                .signOut(this)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(UsuarioLogueadoActivity.this,"aea kausa",Toast.LENGTH_SHORT).show();
-                        finish();
-
-                    }
-                });
-    }
-
-
-
-
-
 }
+
+
+
+
+
+
 
 
 
