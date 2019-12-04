@@ -37,6 +37,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
     //G-son
     implementation 'com.google.code.gson:gson:2.8.6'
+    //Glide (imagenes)
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

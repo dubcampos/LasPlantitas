@@ -9,8 +9,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codigo.recplants.R;
+import com.codigo.recplants.clases.Enfermedad;
 
-public class EnfermedadItemHolder extends RecyclerView.ViewHolder {
+public class EnfermedadItemHolder extends RecyclerView.ViewHolder{
     public TextView nombre_afeccion;
     public CardView cardView;
     Context context;
@@ -18,7 +19,9 @@ public class EnfermedadItemHolder extends RecyclerView.ViewHolder {
     public EnfermedadItemHolder(@NonNull View itemView, Context context) {
         super(itemView);
         nombre_afeccion = itemView.findViewById(R.id.tv_nomEnfer);
-        this.context = context;
         cardView = itemView.findViewById(R.id.rv_enfermedad);
+        this.context = context;
+        //cardView.setOnClickListener(this);
     }
+
 }

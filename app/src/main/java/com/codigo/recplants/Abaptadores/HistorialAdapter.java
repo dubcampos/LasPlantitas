@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.codigo.recplants.R;
+import com.codigo.recplants.clases.Historialgeneral;
 import com.codigo.recplants.clases.prueba;
 import com.codigo.recplants.holders.HistorialItemHolder;
 
@@ -17,11 +19,11 @@ import java.util.List;
 public class HistorialAdapter extends RecyclerView.Adapter<HistorialItemHolder>  {
     private HistorialItemHolder.HistorialListener historialListener;
 
-    List<prueba> datosHistorial;
+    List<Historialgeneral> datosHistorial;
     LayoutInflater inflater;
     Context context;
 
-    public HistorialAdapter(List<prueba> datosHistorial, Context context, HistorialItemHolder.HistorialListener historialListener ) {
+    public HistorialAdapter(List<Historialgeneral> datosHistorial, Context context, HistorialItemHolder.HistorialListener historialListener ) {
         inflater = LayoutInflater.from(context);
         this.datosHistorial = datosHistorial;
         this.context = context;
@@ -37,9 +39,9 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialItemHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull HistorialItemHolder historialItemHolder, int i) {
-        //historialItemHolder.fotoDiagnostico.setImageAlpha(R.drawable.ic_launcher_background);
-        historialItemHolder.enfermedadDiagnostico.setText(datosHistorial.get(i).getTx1());
-        historialItemHolder.horaDiagnostico.setText(datosHistorial.get(i).getTx2());
+        Glide.with(context).load(datosHistorial.get(i).getImagen_usuarioCultivo()).into(historialItemHolder.fotoDiagnostico);
+        historialItemHolder.enfermedadDiagnostico.setText(datosHistorial.get(i).getCultivo().getNombre_cultivo());
+        historialItemHolder.horaDiagnostico.setText(datosHistorial.get(i).getUsuario().getNombre_usuario());
     }
 
     @Override

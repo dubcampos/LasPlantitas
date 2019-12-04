@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import com.codigo.recplants.Abaptadores.EnfermedadAdapter;
 import com.codigo.recplants.Interfaces.Servicios;
 import com.codigo.recplants.clases.Enfermedad;
+import com.codigo.recplants.holders.EnfermedadItemHolder;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
@@ -136,7 +138,7 @@ public class BusquedaActivity extends AppCompatActivity {
                         ListEnfermedad = response.body();
                         Log.e("lisya", String.valueOf(response.body().get(1).getNombre_afeccion()));
                         EnfermedadAdapter Enfermedad_adaptador = new EnfermedadAdapter(BusquedaActivity.this,R.layout.view_item_enfermedad,ListEnfermedad);
-                        recyclerView.setAdapter(Enfermedad_adaptador    );
+                        recyclerView.setAdapter(Enfermedad_adaptador);
                         recyclerView.setLayoutManager(new LinearLayoutManager(BusquedaActivity.this));
                         break;
                 }
@@ -148,4 +150,5 @@ public class BusquedaActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -2,6 +2,9 @@ package com.codigo.recplants.Actividades;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
+
+import com.codigo.recplants.Interfaces.Servicios;
+import com.codigo.recplants.clases.Historialgeneral;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,16 +19,20 @@ import android.widget.Toast;
 import com.codigo.recplants.Abaptadores.HistorialAdapter;
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
-import com.codigo.recplants.clases.prueba;
 import com.codigo.recplants.holders.HistorialItemHolder;
 
-import java.util.LinkedList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HistorialActivity extends AppCompatActivity implements HistorialItemHolder.HistorialListener {
     BottomNavigationView BotonNav;
     RecyclerView historialLista;
-    List<prueba> datos;
+    List<Historialgeneral> datos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +44,31 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
 
         BotonNav.setOnNavigationItemSelectedListener(navListener);
 
-        datos = new LinkedList<>();
-        datos.add(new prueba("sup1","su"));
-        datos.add(new prueba("sup2","su"));
-        datos.add(new prueba("sup2","su"));
-        datos.add(new prueba("sup2","su"));
-        historialLista.setAdapter(new HistorialAdapter(datos,HistorialActivity.this, this));
-        historialLista.setLayoutManager(new GridLayoutManager(this, 1));
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://jalexish54.pythonanywhere.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Servicios service = retrofit.create(Servicios.class);
+        final Call<List<Historialgeneral>>  historial = service.obtenerHistorial();
+        historial.enqueue(new Callback<List<Historialgeneral>>() {
+            @Override
+            public void onResponse(Call<List<Historialgeneral>> call, Response<List<Historialgeneral>> response) {
+                Log.e("xxxx", response.body().get(0).toString());
+                switch (response.code()){
+                    case 200:
+                        datos = response.body();
+                        historialLista.setAdapter(new HistorialAdapter(datos,HistorialActivity.this, HistorialActivity.this));
+                        historialLista.setLayoutManager(new GridLayoutManager(HistorialActivity.this, 1));
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Historialgeneral>> call, Throwable t) {
+
+            }
+        });
 
         Menu menu = BotonNav.getMenu();
         MenuItem menuItem = menu.getItem(1);

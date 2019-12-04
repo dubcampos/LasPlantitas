@@ -3,18 +3,18 @@ package com.codigo.recplants.clases;
 public class Historialgeneral {
     public int id;
     //@JsonProperty("Usuario")
-    public Usuario usuario;
+    public Usuario Usuario;
     //@JsonProperty("Diagnostico")
     //public object diagnostico;
     //@JsonProperty("Cultivo")
-    public Cultivo cultivo;
+    public Cultivo Cultivo;
     public String imagen_usuarioCultivo;
 
 
-    public Historialgeneral(int id, Usuario usuario, Cultivo cultivo, String imagen_usuarioCultivo) {
+    public Historialgeneral(int id, com.codigo.recplants.clases.Usuario usuario, com.codigo.recplants.clases.Cultivo cultivo, String imagen_usuarioCultivo) {
         this.id = id;
-        this.usuario = usuario;
-        this.cultivo = cultivo;
+        Usuario = usuario;
+        Cultivo = cultivo;
         this.imagen_usuarioCultivo = imagen_usuarioCultivo;
     }
 
@@ -26,20 +26,20 @@ public class Historialgeneral {
         this.id = id;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public com.codigo.recplants.clases.Usuario getUsuario() {
+        return Usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(com.codigo.recplants.clases.Usuario usuario) {
+        Usuario = usuario;
     }
 
-    public Cultivo getCultivo() {
-        return cultivo;
+    public com.codigo.recplants.clases.Cultivo getCultivo() {
+        return Cultivo;
     }
 
-    public void setCultivo(Cultivo cultivo) {
-        this.cultivo = cultivo;
+    public void setCultivo(com.codigo.recplants.clases.Cultivo cultivo) {
+        Cultivo = cultivo;
     }
 
     public String getImagen_usuarioCultivo() {

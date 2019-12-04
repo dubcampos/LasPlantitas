@@ -23,6 +23,7 @@ public class EnfermedadAdapter extends RecyclerView.Adapter<EnfermedadItemHolder
         this.context = context;
         this.layout = layout;
         this.datos = datos;
+
         layoutInflater = LayoutInflater.from(context);
     }
 
