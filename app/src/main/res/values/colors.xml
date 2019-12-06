@@ -4,11 +4,13 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorVerde">#008f39</color>
+    <color name="nuevoblanco">#fbfbfb</color>
     <color name="gradientStartColor">#4e4744</color>
     <color name="gradientEndColor">#211915</color>
     <color name="colorNegro">#ffffff</color>
     <color name="colorNegrooscuro">#000000</color>
     <color name="colorBlanco">#FFFFF0</color>
+    <color name="colorBlancoFantasma">#F8F8FF</color>
 
 
 </resources>
