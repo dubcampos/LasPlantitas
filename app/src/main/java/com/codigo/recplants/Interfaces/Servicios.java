@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface Servicios {
     @GET("API/enfermedades/")
@@ -14,4 +15,7 @@ public interface Servicios {
 
     @GET("API/historialgeneral/")
     Call<List<Historialgeneral>> obtenerHistorial();
+
+    @GET("API/historial/{id}")
+    Call<List<Historialgeneral>> obtenerHistorialID(@Path("id") int id);
 }
