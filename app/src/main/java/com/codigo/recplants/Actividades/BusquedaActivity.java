@@ -32,7 +32,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class BusquedaActivity extends AppCompatActivity {
+public class BusquedaActivity extends AppCompatActivity implements EnfermedadItemHolder.EnfermedadListener{
     BottomNavigationView BotonNav;
     RecyclerView recyclerView;
     SearchView searchView;
@@ -72,7 +72,7 @@ public class BusquedaActivity extends AppCompatActivity {
                         listTemp.add(enfermedad);
                     }
                 }
-                EnfermedadAdapter enfermedad_adaptador = new EnfermedadAdapter(BusquedaActivity.this,R.layout.view_item_enfermedad,listTemp);
+                EnfermedadAdapter enfermedad_adaptador = new EnfermedadAdapter(BusquedaActivity.this,R.layout.view_item_enfermedad,listTemp,BusquedaActivity.this);
                 recyclerView.setAdapter(enfermedad_adaptador);
                 return false;
             }
@@ -139,7 +139,7 @@ public class BusquedaActivity extends AppCompatActivity {
                     case 200:
                         ListEnfermedad = response.body();
                         //Log.e("lisya", String.valueOf(response.body().get(1).getNombre_afeccion()));
-                        EnfermedadAdapter Enfermedad_adaptador = new EnfermedadAdapter(BusquedaActivity.this,R.layout.view_item_enfermedad,ListEnfermedad);
+                        EnfermedadAdapter Enfermedad_adaptador = new EnfermedadAdapter(BusquedaActivity.this,R.layout.view_item_enfermedad,ListEnfermedad,BusquedaActivity.this);
                         recyclerView.setAdapter(Enfermedad_adaptador);
                         recyclerView.setLayoutManager(new LinearLayoutManager(BusquedaActivity.this));
                         break;
@@ -153,4 +153,13 @@ public class BusquedaActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void EnfermedadClick(int position) {
+        Toast.makeText(this,"hola", Toast.LENGTH_LONG).show();
+        Log.e("error1","i");
+        ListEnfermedad.get(position);
+        Intent intent = new Intent(BusquedaActivity.this,RespuestaActivity.class);
+        intent.putExtra("abrirCamara", false);
+        startActivity(intent);
+    }
 }

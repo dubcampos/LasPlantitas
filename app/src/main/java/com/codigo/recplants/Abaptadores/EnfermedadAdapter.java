@@ -14,15 +14,17 @@ import com.codigo.recplants.holders.EnfermedadItemHolder;
 import java.util.List;
 
 public class EnfermedadAdapter extends RecyclerView.Adapter<EnfermedadItemHolder> {
+   private EnfermedadItemHolder.EnfermedadListener listener;
     Context context;
     int layout;
     List<Enfermedad> datos;
     LayoutInflater layoutInflater;
 
-    public EnfermedadAdapter(Context context, int layout, List<Enfermedad> datos) {
+    public EnfermedadAdapter(Context context, int layout, List<Enfermedad> datos,EnfermedadItemHolder.EnfermedadListener listener) {
         this.context = context;
         this.layout = layout;
         this.datos = datos;
+        this.listener = listener;
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -30,7 +32,7 @@ public class EnfermedadAdapter extends RecyclerView.Adapter<EnfermedadItemHolder
     @Override
     public EnfermedadItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = layoutInflater.inflate(layout,parent,false);
-        return new EnfermedadItemHolder(v, context);
+        return new EnfermedadItemHolder(v, context,listener);
     }
 
     @Override
