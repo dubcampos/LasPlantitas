@@ -129,14 +129,16 @@ public class BusquedaActivity extends AppCompatActivity {
                 .build();
         Servicios inter = retrofit.create(Servicios.class);
         Call<List<Enfermedad>> lista= inter.ObtenerEnfermedades();
+
+
         lista.enqueue(new Callback<List<Enfermedad>>() {
             @Override
             public void onResponse(Call<List<Enfermedad>> call, Response<List<Enfermedad>> response) {
-                Log.e("lisya", String.valueOf(response.body().get(1).getNombre_afeccion()));
+                Log.e("lisya", String.valueOf(response.body().get(0).getNombre_afeccion()));
                 switch (response.code()){
                     case 200:
                         ListEnfermedad = response.body();
-                        Log.e("lisya", String.valueOf(response.body().get(1).getNombre_afeccion()));
+                        //Log.e("lisya", String.valueOf(response.body().get(1).getNombre_afeccion()));
                         EnfermedadAdapter Enfermedad_adaptador = new EnfermedadAdapter(BusquedaActivity.this,R.layout.view_item_enfermedad,ListEnfermedad);
                         recyclerView.setAdapter(Enfermedad_adaptador);
                         recyclerView.setLayoutManager(new LinearLayoutManager(BusquedaActivity.this));
