@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:title="Item"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/compartir"
-        android:id="@+id/compartimos"/>
-    <item android:id="@+id/opciones"
-        android:title="prueba"/>
+
+    <item android:id="@+id/compartimos"
+        android:title="Compartir"
+        android:icon="@drawable/cmp"></item>
     <item android:id="@+id/prueba"
-        android:title="prueba"/>
+        android:title="Inicio Rapido"></item>
     <item android:id="@+id/observar"
-        android:title="prueba"/>
+        android:title="Acerca de"></item>
 
 </menu>

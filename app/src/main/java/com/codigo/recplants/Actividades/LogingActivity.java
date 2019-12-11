@@ -2,13 +2,26 @@ package com.codigo.recplants.Actividades;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
@@ -16,69 +29,25 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class LogingActivity extends AppCompatActivity {
-    BottomNavigationView BotonNav;
-    Button btng;
+public class LogingActivity extends AppCompatActivity  {
 
-
+    ImageView imagen;
+    TextView txt_nombre;
+    TextView txt_email;
+    TextView txt_id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loging);
-        BotonNav = findViewById(R.id.button_nav1);
-        BotonNav.setOnNavigationItemSelectedListener(navListener);
-        btng=findViewById(R.id.register);
-
-
-
-
+        imagen=findViewById(R.id.imagen_usuario);
+        txt_nombre=findViewById(R.id.txt_nombre);
+        txt_email=findViewById(R.id.txt_email);
+        txt_id=findViewById(R.id.txt_id);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            int itemId = menuItem.getItemId();
-            if (itemId == R.id.opcion_registro) {
-                Intent intent = new Intent(LogingActivity.this,UsuarioLogueadoActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
-            } else if (itemId == R.id.opcion_historial) {
-                Intent intent = new Intent(LogingActivity.this, HistorialActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
-            } else if (itemId == R.id.opcion_busqueda) {
-                Intent intent = new Intent(LogingActivity.this, BusquedaActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
-            } else if (itemId == R.id.opcion_calculadora) {
-                Intent intent = new Intent(LogingActivity.this, CalculadoraActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
-            }
-            return true;
-        }
-    };
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivityForResult(intent, 0);
-            overridePendingTransition(0,0);
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
+    public void salir(View view) {
+        onBackPressed();
     }
-
-
-
-
 }
-

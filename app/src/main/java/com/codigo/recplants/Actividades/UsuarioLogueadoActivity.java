@@ -36,13 +36,18 @@ public class UsuarioLogueadoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_logueado);
+
         mFirebaseAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
+
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+
+
                 if (user != null) {
+
                     Toast.makeText(UsuarioLogueadoActivity.this, "Ya perdiste p kausa", Toast.LENGTH_SHORT).show();
                 } else {
                     startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).setIsSmartLockEnabled(false).build(), RC_SIGN_IN);

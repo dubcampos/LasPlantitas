@@ -87,12 +87,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
 
-            case R.id.opciones:
-                Toast.makeText(this,"XDXDXDXDXDX",Toast.LENGTH_SHORT).show();
-                break;
+
             case R.id.prueba:
-                Toast.makeText(this,"la rata",Toast.LENGTH_SHORT).show();
-                break;
+                Intent intent=new Intent(MainActivity.this,LogingActivity.class);
+                startActivity(intent);
             case R.id.observar:
                 Toast.makeText(this,":V",Toast.LENGTH_SHORT).show();
                 break;
