@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/compartimos"
-        android:title="Compartir"
-        android:icon="@drawable/cmp"></item>
+        android:title="Compartir"></item>
     <item android:id="@+id/prueba"
         android:title="Inicio Rapido"></item>
     <item android:id="@+id/observar"
