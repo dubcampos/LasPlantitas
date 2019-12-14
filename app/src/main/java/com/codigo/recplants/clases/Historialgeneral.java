@@ -1,12 +1,12 @@
 package com.codigo.recplants.clases;
 
+
+
+
 public class Historialgeneral {
     public int id;
-    //@JsonProperty("Usuario")
     public Usuario Usuario;
-    //@JsonProperty("Diagnostico")
     //public object diagnostico;
-    //@JsonProperty("Cultivo")
     public Cultivo Cultivo;
     public String imagen_usuarioCultivo;
 
