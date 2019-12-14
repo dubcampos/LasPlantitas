@@ -1,5 +1,6 @@
 package com.codigo.recplants;
 
+import android.Manifest;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 
@@ -8,7 +9,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,10 +49,18 @@ public class MainActivity extends AppCompatActivity {
         btn_floating = findViewById(R.id.flotante);
         toolbar1 = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar1);
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
 
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+
+
+        }else {
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }
         btn_floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this, RespuestaActivity.class);
                 startActivity(intent);
             }
