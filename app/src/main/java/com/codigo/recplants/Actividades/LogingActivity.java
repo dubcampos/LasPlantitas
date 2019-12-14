@@ -31,20 +31,13 @@ import java.util.concurrent.TimeUnit;
 
 public class LogingActivity extends AppCompatActivity  {
 
-    ImageView imagen;
-    TextView txt_nombre;
-    TextView txt_email;
-    TextView txt_id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loging);
-        imagen=findViewById(R.id.imagen_usuario);
-        txt_nombre=findViewById(R.id.txt_nombre);
-        txt_email=findViewById(R.id.txt_email);
-        txt_id=findViewById(R.id.txt_id);
+
     }
 
     public void salir(View view) {
