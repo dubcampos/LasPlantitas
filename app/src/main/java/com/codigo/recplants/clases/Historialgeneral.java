@@ -1,12 +1,15 @@
 package com.codigo.recplants.clases;
+import com.google.gson.annotations.SerializedName;
+
+
 
 public class Historialgeneral {
     public int id;
-    //@JsonProperty("Usuario")
+    @SerializedName("Usuario")
     public Usuario Usuario;
-    //@JsonProperty("Diagnostico")
+    //@SerializedName("Diagnostico")
     //public object diagnostico;
-    //@JsonProperty("Cultivo")
+    @SerializedName("Cultivo")
     public Cultivo Cultivo;
     public String imagen_usuarioCultivo;
 

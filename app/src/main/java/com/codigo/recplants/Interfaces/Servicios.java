@@ -27,8 +27,8 @@ public interface Servicios {
     @FormUrlEncoded
     @POST("API/historialregistro/")
     Call<Historialgeneral>  historialRegistro(
-            @Field("usuario") int usuario,
-            @Field("cultivo") int cultivo
+            @Field("Usuario") int usuario,
+            @Field("Cultivo") int cultiv
             //@Field("Imagen_usuarioCultivo") String Imagen_usuarioCultivo
     );
 }
