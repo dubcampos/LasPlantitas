@@ -45,6 +45,9 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
             new AuthUI.IdpConfig.PhoneBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build()
     );
+
+
+    //svkjnvkjndfkvndknbkdj
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
