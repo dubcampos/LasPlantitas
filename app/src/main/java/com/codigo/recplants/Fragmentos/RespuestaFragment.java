@@ -2,6 +2,7 @@ package com.codigo.recplants.Fragmentos;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -29,6 +30,7 @@ import com.codigo.recplants.R;
 import com.codigo.recplants.clases.HistorialGeneralRegistro;
 import com.codigo.recplants.clases.Historialgeneral;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import okhttp3.MediaType;
@@ -60,17 +62,36 @@ public class RespuestaFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_respuesta, container, false);
         fragment = view.findViewById(R.id.Img_fragment);
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
 
-
+            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }
         if (muestraCamara) {
-            Intent TomarFoto = new Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            Intent TomarFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(TomarFoto, 200);
-            Uri imagen = TomarFoto.getData();
+
+        }
+        return view;
+
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null) {
+            fragment.setImageBitmap((Bitmap) data.getExtras().get("data"));
+            ra.ObtenerImagen((Bitmap) data.getExtras().get("data"));
+
+            final Bitmap photo = (Bitmap) data.getExtras().get("data");
+
+            Uri imagen = getImageUri(getActivity(), photo);
+
             File file = new File(getRealPathFromURI(imagen));
+
             RequestBody body = RequestBody.create(MediaType.parse("image/*"), file);
-            MultipartBody.Part part = MultipartBody.Part
-                    .createFormData("imagen_usuarioCultivo", file.getName(), body);
+
+            MultipartBody.Part part = MultipartBody.Part.createFormData("imagen_usuarioCultivo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
             RequestBody usuario = RequestBody
                     .create(MediaType.parse("text/plain"), "1");
 
@@ -95,18 +116,6 @@ public class RespuestaFragment extends Fragment {
                     Log.e("Error", t.toString());
                 }
             });
-        }
-        return view;
-
-
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (data != null) {
-            fragment.setImageBitmap((Bitmap) data.getExtras().get("data"));
-            ra.ObtenerImagen((Bitmap) data.getExtras().get("data"));
         } else {
             startActivity(new Intent(getContext(), MainActivity.class));
         }
@@ -123,5 +132,12 @@ public class RespuestaFragment extends Fragment {
         cursor.close();
         return result;
 
+    }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
     }
 }
