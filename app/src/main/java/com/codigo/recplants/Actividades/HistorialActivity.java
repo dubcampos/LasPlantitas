@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -59,7 +60,8 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
                     case 200:
                         datos = response.body();
                         historialLista.setAdapter(new HistorialAdapter(datos,HistorialActivity.this, HistorialActivity.this));
-                        historialLista.setLayoutManager(new GridLayoutManager(HistorialActivity.this, 1));
+                        LinearLayoutManager linearHorizontal = new LinearLayoutManager(HistorialActivity.this,LinearLayoutManager.HORIZONTAL,false);
+                        historialLista.setLayoutManager(linearHorizontal);
                         break;
                 }
             }
