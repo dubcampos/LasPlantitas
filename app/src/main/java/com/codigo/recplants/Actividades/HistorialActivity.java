@@ -60,8 +60,8 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
                     case 200:
                         datos = response.body();
                         historialLista.setAdapter(new HistorialAdapter(datos,HistorialActivity.this, HistorialActivity.this));
-                        LinearLayoutManager linearHorizontal = new LinearLayoutManager(HistorialActivity.this,LinearLayoutManager.HORIZONTAL,false);
-                        historialLista.setLayoutManager(linearHorizontal);
+                        historialLista.setLayoutManager(new GridLayoutManager(HistorialActivity.this, 1));
+                        //historialLista.setLayoutManager(new LinearLayoutManager(HistorialActivity.this,LinearLayoutManager.HORIZONTAL,false));
                         break;
                 }
             }
