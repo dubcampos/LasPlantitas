@@ -48,6 +48,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.app.Activity.RESULT_OK;
+
 public class RespuestaFragment extends Fragment {
     ImageView fragment;
     public RespuestaActivity ra;
@@ -124,7 +126,7 @@ public class RespuestaFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (data != null) {
+        if (resultCode == RESULT_OK) {
             Bitmap bitmap;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), photoURI);
