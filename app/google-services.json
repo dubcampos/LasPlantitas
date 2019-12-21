@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "56067142174",
+    "firebase_url": "https://registrocelular-6d476.firebaseio.com",
+    "project_id": "registrocelular-6d476",
+    "storage_bucket": "registrocelular-6d476.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56067142174:android:fba00abc684b358763b40f",
+        "android_client_info": {
+          "package_name": "com.codigo.recplants"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56067142174-vhf01uajrm2dohk1fsk1mt0189hh1711.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codigo.recplants",
+            "certificate_hash": "f2d1da8b553e5973ff7b04c8224b2ebd8108da9b"
+          }
+        },
+        {
+          "client_id": "56067142174-p87m6qu84ebgkjqf3njnn28kvme9otmf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8xN1yocrag_ZeGX67nkZ233syMZsnEvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56067142174-p87m6qu84ebgkjqf3njnn28kvme9otmf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
