@@ -14,44 +14,73 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/Img_fragment"
+        <androidx.cardview.widget.CardView
+            style="@style/cardStyle"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="match_parent" >
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/datos_planta"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:hint="Datos de la planta"
-            android:text=""
-            android:textAlignment="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/Enfermedad_planta"
-            android:hint="Enfermedad de la planta"
-            android:layout_width="match_parent"
-            android:textAlignment="center"
-            android:layout_height="110dp"
-            android:text="" />
+                    <ImageView
+                        android:id="@+id/Img_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/datos_enfermedad"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:text=""
-            android:textAlignment="center"
-            android:hint="Datos de la enfermedad"/>
+                    <TextView
+                        android:id="@+id/diseaseTitleTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Test"
+                        android:textAllCaps="true"
+                        android:textColor="#388E3C"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Cause:"
+                        android:textColor="#424242"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/causeTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Remedies:"
+                        android:textColor="#424242"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/remediesTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 </FrameLayout>
