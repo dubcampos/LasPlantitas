@@ -64,9 +64,6 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
-
-
-
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -85,12 +82,15 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
                             finish();
                         }
                     });
-
-
-
-
                 } else {
-                    startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).setIsSmartLockEnabled(false).build(), RC_SIGN_IN);
+                    startActivityForResult(
+                            AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(providers)
+                            .setTheme(R.style.LoginTheme)
+                            .setLogo(R.drawable.logo3)
+                            .setIsSmartLockEnabled(false)
+                            .build(), RC_SIGN_IN);
                 }
             }
         };
