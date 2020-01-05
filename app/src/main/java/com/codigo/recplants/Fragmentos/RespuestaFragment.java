@@ -39,16 +39,17 @@ import com.codigo.recplants.clases.HistorialGeneralRegistro;
 import com.codigo.recplants.clases.Historialgeneral;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
+
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.Objects;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -62,6 +63,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.app.Activity.RESULT_OK;
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class RespuestaFragment extends Fragment {
     ImageView fragment;
@@ -217,9 +219,9 @@ public class RespuestaFragment extends Fragment {
         return Uri.parse(path);
     }
 
-    void connectServer(Bitmap v){
+    void connectServer(Bitmap v) {
 
-        String postUrl= "http://192.168.0.111:8000/";
+        String postUrl = "http://192.168.0.111:8000/";
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -236,7 +238,7 @@ public class RespuestaFragment extends Fragment {
                     .build();
             Toast.makeText(getContext(), "Please wait ...", Toast.LENGTH_SHORT).show();
             postRequest(postUrl, postBodyImage);
-        }  catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -284,7 +286,7 @@ public class RespuestaFragment extends Fragment {
                 }
 
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[] {
+                final String[] selectionArgs = new String[]{
                         split[1]
                 };
 
@@ -315,7 +317,6 @@ public class RespuestaFragment extends Fragment {
         client.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(okhttp3.Call call, IOException e) {
-                // Cancel the post on failure.
                 call.cancel();
                 e.printStackTrace();
                 getActivity().runOnUiThread(new Runnable() {
@@ -324,24 +325,55 @@ public class RespuestaFragment extends Fragment {
                         Toast.makeText(getContext(), "Failed to Connect to Server", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
-
             }
 
             @Override
             public void onResponse(okhttp3.Call call, final okhttp3.Response response) throws IOException {
-                // In order to access the TextView inside the UI thread, the code is executed inside runOnUiThread()
-                Log.e("respuesta",response.body().string());
-                Toast.makeText(getContext(), response.body().string(),Toast.LENGTH_LONG).show();
-                //String causeString = dis.getJSONObject(0).getString("Causes");
-                //String remediesString = dis.getJSONObject(1).getString("Remedies");
-                //titleTextView.setText(disease);
-                //causeTextView.setText(causeString);
-                //remediesTextView.setText(remediesString);
-
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            String disease = response.body().string();
+                            Toast.makeText(getContext(), disease, Toast.LENGTH_SHORT).show();
+                            titleTextView.setText(disease);
+                            /*JSONObject obj = new JSONObject(loadJSONFromAsset(getActivity()));
+                            JSONArray dis = obj.getJSONArray(disease);
+                            String causeString = dis.getJSONObject(0).getString("Causes");
+                            String remediesString = dis.getJSONObject(1).getString("Remedies");
+                            causeTextView.setText(causeString);
+                            remediesTextView.setText(remediesString);*/
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        /*} catch (JSONException e) {
+                            e.printStackTrace();*/
+                        }
+                    }
+                });
             }
         });
+    }
+    public String loadJSONFromAsset(Context context) {
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open("causesremedies.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
     }
 
     public static String getDataColumn(Context context, Uri uri, String selection,

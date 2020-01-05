@@ -44,11 +44,6 @@ public class CalculadoraActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
-            } else if (itemId == R.id.opcion_calculadora) {
-                Intent intent = new Intent(CalculadoraActivity.this, CalculadoraActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
             }
             return true;
         }

@@ -9,7 +9,4 @@
     <item android:title="Busqueda"
         android:id="@+id/opcion_busqueda"
         android:icon="@drawable/ic_search_black_24dp"></item>
-    <item android:title="Calculadora"
-        android:id="@+id/opcion_calculadora"
-        android:icon="@drawable/ic_dialpad_black_24dp"></item>
 </menu>

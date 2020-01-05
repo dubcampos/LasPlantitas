@@ -43,11 +43,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorVerde"
+        android:background="@color/colorVerde"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="17dp"
         android:layout_marginBottom="80dp"
-        android:src="@drawable/camara"
+        android:src="@drawable/ic_camera_enhance_black_24dp"
          />
 
 

@@ -100,11 +100,6 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
-            } else if (itemId == R.id.opcion_calculadora) {
-                Intent intent = new Intent(HistorialActivity.this, CalculadoraActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
             }
             return true;
         }
