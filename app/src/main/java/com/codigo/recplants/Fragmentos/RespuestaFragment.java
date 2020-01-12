@@ -221,8 +221,7 @@ public class RespuestaFragment extends Fragment {
 
     void connectServer(Bitmap v) {
 
-        String postUrl = "http://192.168.0.111:8000/";
-
+        String postUrl = "https://8000-dot-10406895-dot-devshell.appspot.com/";
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
@@ -335,6 +334,7 @@ public class RespuestaFragment extends Fragment {
                         try {
                             String disease = response.body().string();
                             Toast.makeText(getContext(), disease, Toast.LENGTH_SHORT).show();
+                            Log.e("respuesta",disease);
                             titleTextView.setText(disease);
                             /*JSONObject obj = new JSONObject(loadJSONFromAsset(getActivity()));
                             JSONArray dis = obj.getJSONArray(disease);

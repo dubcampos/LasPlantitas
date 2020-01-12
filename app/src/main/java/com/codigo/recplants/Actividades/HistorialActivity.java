@@ -8,8 +8,9 @@ import com.codigo.recplants.clases.Historialgeneral;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -34,6 +35,7 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
     BottomNavigationView BotonNav;
     RecyclerView historialLista;
     List<Historialgeneral> datos;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,8 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
         historialLista = findViewById(R.id.lista_historial);
 
         BotonNav.setOnNavigationItemSelectedListener(navListener);
+        toolbar = (Toolbar) findViewById(R.id.tb);
+        setSupportActionBar(toolbar);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://jalexish54.pythonanywhere.com/")
