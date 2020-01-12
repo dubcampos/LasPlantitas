@@ -334,7 +334,7 @@ public class RespuestaFragment extends Fragment {
                         try {
                             String disease = response.body().string();
                             Toast.makeText(getContext(), disease, Toast.LENGTH_SHORT).show();
-                            Log.e("respuesta",disease);
+                            Log.e("respuesta", disease);
                             titleTextView.setText(disease);
                             /*JSONObject obj = new JSONObject(loadJSONFromAsset(getActivity()));
                             JSONArray dis = obj.getJSONArray(disease);
@@ -352,6 +352,7 @@ public class RespuestaFragment extends Fragment {
             }
         });
     }
+
     public String loadJSONFromAsset(Context context) {
         String json = null;
         try {

@@ -29,12 +29,11 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
 
-public class UsuarioLogueadoActivity extends AppCompatActivity  {
+public class UsuarioLogueadoActivity extends AppCompatActivity {
     ImageView img_usuario;
     TextView txt_email;
     TextView txt_nombre;
     Button btn_salir;
-
 
 
     private FirebaseAuth mFirebaseAuth;
@@ -53,12 +52,10 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_logueado);
 
-        txt_nombre=findViewById(R.id.txt_nombre);
-        txt_email=findViewById(R.id.txt_email);
-        img_usuario=findViewById(R.id.imagen_usuario);
-        btn_salir=findViewById(R.id.btn_cierre);
-
-
+        txt_nombre = findViewById(R.id.txt_nombre);
+        txt_email = findViewById(R.id.txt_email);
+        img_usuario = findViewById(R.id.imagen_usuario);
+        btn_salir = findViewById(R.id.btn_cierre);
 
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -77,7 +74,7 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
                         @Override
                         public void onClick(View view) {
                             mFirebaseAuth.signOut();
-                            Intent i=new Intent(UsuarioLogueadoActivity.this,MainActivity.class);
+                            Intent i = new Intent(UsuarioLogueadoActivity.this, MainActivity.class);
                             startActivity(i);
                             finish();
                         }
@@ -85,12 +82,12 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
                 } else {
                     startActivityForResult(
                             AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setAvailableProviders(providers)
-                            .setTheme(R.style.LoginTheme)
-                            .setLogo(R.drawable.logo3)
-                            .setIsSmartLockEnabled(false)
-                            .build(), RC_SIGN_IN);
+                                    .createSignInIntentBuilder()
+                                    .setAvailableProviders(providers)
+                                    .setTheme(R.style.LoginTheme)
+                                    .setLogo(R.drawable.logo3)
+                                    .setIsSmartLockEnabled(false)
+                                    .build(), RC_SIGN_IN);
                 }
             }
         };
@@ -107,8 +104,7 @@ public class UsuarioLogueadoActivity extends AppCompatActivity  {
     protected void onPause() {
         super.onPause();
         mFirebaseAuth.removeAuthStateListener(mAuthListener);
-
-onBackPressed();
+        onBackPressed();
     }
 }
 

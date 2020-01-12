@@ -47,7 +47,7 @@ public class RespuestaActivity extends AppCompatActivity {
         rf.ra = this;
         adapter.addFragment(rf, "Diagnostico");
         adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");
-        adapter.addFragment(new PrevencionFragment(), "Prevencion");
+        //adapter.addFragment(new PrevencionFragment(), "Prevencion");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
