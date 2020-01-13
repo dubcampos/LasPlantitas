@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.codigo.recplants.Abaptadores.EnfermedadAdapter;
 import com.codigo.recplants.Interfaces.Servicios;
-import com.codigo.recplants.clases.Enfermedad;
+import com.codigo.recplants.clases.afeccion;
 import com.codigo.recplants.holders.EnfermedadItemHolder;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -38,7 +38,7 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
     BottomNavigationView BotonNav;
     RecyclerView recyclerView;
     SearchView searchView;
-    List<Enfermedad> ListEnfermedad;
+    List<afeccion> ListEnfermedad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +68,8 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
 
             @Override
             public boolean onQueryTextChange(String s) {
-                List<Enfermedad> listTemp = new ArrayList<>();
-                for (Enfermedad enfermedad : ListEnfermedad) {
+                List<afeccion> listTemp = new ArrayList<>();
+                for (afeccion enfermedad : ListEnfermedad) {
                     if (enfermedad.getNombre_afeccion().contains(s)) {
                         listTemp.add(enfermedad);
                     }
@@ -125,12 +125,12 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Servicios inter = retrofit.create(Servicios.class);
-        Call<List<Enfermedad>> lista = inter.ObtenerEnfermedades();
+        Call<List<afeccion>> lista = inter.ObtenerEnfermedades();
 
 
-        lista.enqueue(new Callback<List<Enfermedad>>() {
+        lista.enqueue(new Callback<List<afeccion>>() {
             @Override
-            public void onResponse(Call<List<Enfermedad>> call, Response<List<Enfermedad>> response) {
+            public void onResponse(Call<List<afeccion>> call, Response<List<afeccion>> response) {
                 Log.e("lisya", String.valueOf(response.body().get(0).getNombre_afeccion()));
                 switch (response.code()) {
                     case 200:
@@ -144,7 +144,7 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
             }
 
             @Override
-            public void onFailure(Call<List<Enfermedad>> call, Throwable t) {
+            public void onFailure(Call<List<afeccion>> call, Throwable t) {
 
             }
         });

@@ -9,7 +9,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codigo.recplants.R;
-import com.codigo.recplants.clases.Enfermedad;
 
 public class EnfermedadItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     public TextView nombre_afeccion;

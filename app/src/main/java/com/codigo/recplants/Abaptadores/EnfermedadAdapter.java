@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.codigo.recplants.clases.Enfermedad;
+import com.codigo.recplants.clases.afeccion;
 import com.codigo.recplants.holders.EnfermedadItemHolder;
 
 import java.util.List;
@@ -17,10 +17,10 @@ public class EnfermedadAdapter extends RecyclerView.Adapter<EnfermedadItemHolder
    private EnfermedadItemHolder.EnfermedadListener listener;
     Context context;
     int layout;
-    List<Enfermedad> datos;
+    List<afeccion> datos;
     LayoutInflater layoutInflater;
 
-    public EnfermedadAdapter(Context context, int layout, List<Enfermedad> datos,EnfermedadItemHolder.EnfermedadListener listener) {
+    public EnfermedadAdapter(Context context, int layout, List<afeccion> datos,EnfermedadItemHolder.EnfermedadListener listener) {
         this.context = context;
         this.layout = layout;
         this.datos = datos;

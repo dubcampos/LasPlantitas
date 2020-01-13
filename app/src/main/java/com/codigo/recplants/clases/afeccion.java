@@ -1,11 +1,11 @@
 package com.codigo.recplants.clases;
 
-public class Enfermedad {
+public class afeccion {
     int id;
     public String nombre_afeccion;
     String causa_afeccion;
 
-    public Enfermedad(int id, String nombre_afeccion, String causa_afeccion) {
+    public afeccion(int id, String nombre_afeccion, String causa_afeccion) {
         this.id = id;
         this.nombre_afeccion = nombre_afeccion;
         this.causa_afeccion = causa_afeccion;
@@ -33,14 +33,5 @@ public class Enfermedad {
 
     public void setCausa_afeccion(String causa_afeccion) {
         this.causa_afeccion = causa_afeccion;
-    }
-
-    @Override
-    public String toString() {
-        return "Enfermedad{" +
-                "id=" + id +
-                ", nombre_afeccion='" + nombre_afeccion + '\'' +
-                ", causa_afeccion='" + causa_afeccion + '\'' +
-                '}';
     }
 }
