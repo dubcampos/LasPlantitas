@@ -3,14 +3,20 @@ package com.codigo.recplants.Actividades;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
+
+import com.codigo.recplants.clases.Historialgeneral;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.codigo.recplants.Abaptadores.RespuestaTabAdapter;
 import com.codigo.recplants.Fragmentos.PrevencionFragment;
@@ -36,6 +42,7 @@ public class RespuestaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_respuesta);
         tabLayout = findViewById(R.id.PestanaRespuesta);
         viewPager = findViewById(R.id.paginasRespuesta);
+
         Intent i = getIntent();
         RespuestaFragment rf = new RespuestaFragment();
         RespuestaTabAdapter adapter = new RespuestaTabAdapter(getSupportFragmentManager(), this);
@@ -43,8 +50,20 @@ public class RespuestaActivity extends AppCompatActivity {
             rf.muestraCamara = true;
         }else{
             rf.muestraCamara = false;
+
         }
+        Bundle bundle = getIntent().getExtras();
+
+        // Obtienes el texto
+        String imagen = bundle.getString("imagen");
+
+        // Creamos un nuevo Bundle
+        Bundle args = new Bundle();
+
+        // Colocamos el String
+        args.putString("textFromActivityB", imagen);
         rf.ra = this;
+        rf.setArguments(args);
         adapter.addFragment(rf, "Diagnostico");
         adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");
         //adapter.addFragment(new PrevencionFragment(), "Prevencion");

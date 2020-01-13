@@ -12,6 +12,8 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -23,6 +25,7 @@ import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
 import com.codigo.recplants.holders.HistorialItemHolder;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,7 +49,7 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
         historialLista = findViewById(R.id.lista_historial);
 
         BotonNav.setOnNavigationItemSelectedListener(navListener);
-        toolbar = (Toolbar) findViewById(R.id.tb);
+        toolbar = findViewById(R.id.tb);
         setSupportActionBar(toolbar);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -111,10 +114,11 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
 
     @Override
     public void historialClick(int position) {
-        Toast.makeText(this,"hola", Toast.LENGTH_LONG).show();
-        Log.e("error","i");
-        datos.get(position);
+        //Toast.makeText(this,"hola", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "cod + " + position, Toast.LENGTH_LONG).show();
+        //Historialgeneral historialgeneral = datos.get(position);
         Intent intent = new Intent(HistorialActivity.this,RespuestaActivity.class);
+        intent.putExtra("imagen", datos.get(position).imagen_usuarioCultivo);
         intent.putExtra("abrirCamara", false);
         startActivity(intent);
     }
