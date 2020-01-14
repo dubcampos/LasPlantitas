@@ -11,6 +11,6 @@
     <color name="colorNegrooscuro">#000000</color>
     <color name="colorBlanco">#FFFFFF</color>
     <color name="colorBlancoFantasma">#F8F8FF</color>
-
-
+    <color name="colorMint">#99EDC3</color>
+    <color name="colorLima">#AEF359</color>
 </resources>
