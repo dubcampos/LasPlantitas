@@ -93,9 +93,12 @@ public class RespuestaFragment extends Fragment {
         causeTextView = view.findViewById(R.id.causeTextView);
         remediesTextView = view.findViewById(R.id.remediesTextView);
 
-        String texto = getArguments().getString("textFromActivityB");
+        if (getArguments() != null)
+        {
+            String texto = getArguments().getString("textFromActivityB");
+            Glide.with(getContext()).load(texto).into(fragment);
+        }
 
-        Glide.with(getContext()).load(texto).into(fragment);
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {

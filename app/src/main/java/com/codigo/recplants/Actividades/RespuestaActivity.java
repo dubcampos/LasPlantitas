@@ -29,6 +29,7 @@ public class RespuestaActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     BottomNavigationView BotonNav;
+    Bundle bundle;
 
 
     public void ObtenerImagen(Bitmap imagen){
@@ -50,20 +51,22 @@ public class RespuestaActivity extends AppCompatActivity {
             rf.muestraCamara = true;
         }else{
             rf.muestraCamara = false;
-
         }
-        Bundle bundle = getIntent().getExtras();
 
-        // Obtienes el texto
-        String imagen = bundle.getString("imagen");
+        bundle = getIntent().getExtras();
+        if (bundle != null)
+        {
+            // Obtienes el texto
+            String imagen = bundle.getString("imagen");
+            // Creamos un nuevo Bundle
+            Bundle args = new Bundle();
 
-        // Creamos un nuevo Bundle
-        Bundle args = new Bundle();
+            // Colocamos el String
+            args.putString("textFromActivityB", imagen);
 
-        // Colocamos el String
-        args.putString("textFromActivityB", imagen);
+            rf.setArguments(args);
+        }
         rf.ra = this;
-        rf.setArguments(args);
         adapter.addFragment(rf, "Diagnostico");
         adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");
         //adapter.addFragment(new PrevencionFragment(), "Prevencion");
