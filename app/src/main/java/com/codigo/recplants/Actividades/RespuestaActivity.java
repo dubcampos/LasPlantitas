@@ -58,12 +58,15 @@ public class RespuestaActivity extends AppCompatActivity {
         {
             // Obtienes el texto
             String imagen = bundle.getString("imagen");
+            String nombre = bundle.getString("nombre");
+            String descripcion = bundle.getString("descripcion");
             // Creamos un nuevo Bundle
             Bundle args = new Bundle();
 
             // Colocamos el String
             args.putString("textFromActivityB", imagen);
-
+            args.putString("nombreFromActivityB", nombre);
+            args.putString("descripcionFromActivityB", descripcion);
             rf.setArguments(args);
         }
         rf.ra = this;

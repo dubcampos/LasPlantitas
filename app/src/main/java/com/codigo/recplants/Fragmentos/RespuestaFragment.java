@@ -96,6 +96,10 @@ public class RespuestaFragment extends Fragment {
         if (getArguments() != null)
         {
             String texto = getArguments().getString("textFromActivityB");
+            String nombre = getArguments().getString("nombreFromActivityB");
+            String descripcion = getArguments().getString("descripcionFromActivityB");
+            titleTextView.setText(nombre);
+            causeTextView.setText(descripcion);
             Glide.with(getContext()).load(texto).into(fragment);
         }
 

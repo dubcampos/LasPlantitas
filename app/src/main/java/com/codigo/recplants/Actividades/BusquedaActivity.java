@@ -156,6 +156,8 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
         Log.e("error1", "i");
         ListEnfermedad.get(position);
         Intent intent = new Intent(BusquedaActivity.this, RespuestaActivity.class);
+        intent.putExtra("nombre", ListEnfermedad.get(position).getNombre_afeccion());
+        intent.putExtra("descripcion", ListEnfermedad.get(position).getCausa_afeccion());
         intent.putExtra("abrirCamara", false);
         startActivity(intent);
     }

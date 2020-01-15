@@ -32,7 +32,7 @@
                         android:id="@+id/Img_fragment"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/logo4" />
 
                     <TextView
                         android:id="@+id/diseaseTitleTextView"
