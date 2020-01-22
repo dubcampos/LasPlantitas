@@ -19,7 +19,6 @@ import android.provider.MediaStore;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
 
@@ -36,12 +35,9 @@ import com.codigo.recplants.Actividades.RespuestaActivity;
 import com.codigo.recplants.Interfaces.Servicios;
 import com.codigo.recplants.MainActivity;
 import com.codigo.recplants.R;
-import com.codigo.recplants.clases.HistorialGeneralRegistro;
-import com.codigo.recplants.clases.Historialgeneral;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.codigo.recplants.clases.respuesta;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -64,7 +60,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.app.Activity.RESULT_OK;
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class RespuestaFragment extends Fragment {
     ImageView fragment;
@@ -74,6 +69,7 @@ public class RespuestaFragment extends Fragment {
     public static final int REQUEST_CODE_TAKE_PHOTO = 0 /*1*/;
     private String mCurrentPhotoPath;
     private Uri photoURI;
+    Bitmap bitmap;
 
     TextView titleTextView;
     TextView causeTextView;
@@ -93,8 +89,7 @@ public class RespuestaFragment extends Fragment {
         causeTextView = view.findViewById(R.id.causeTextView);
         remediesTextView = view.findViewById(R.id.remediesTextView);
 
-        if (getArguments() != null)
-        {
+        if (getArguments() != null) {
             String texto = getArguments().getString("textFromActivityB");
             String nombre = getArguments().getString("nombreFromActivityB");
             String descripcion = getArguments().getString("descripcionFromActivityB");
@@ -162,7 +157,7 @@ public class RespuestaFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            Bitmap bitmap;
+
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), photoURI);
                 fragment.setImageBitmap(bitmap);
@@ -178,7 +173,7 @@ public class RespuestaFragment extends Fragment {
 
                 RequestBody body = RequestBody.create(MediaType.parse("image/*"), file);
 
-                MultipartBody.Part part = MultipartBody.Part.createFormData("imagen_usuarioCultivo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+                /*MultipartBody.Part part = MultipartBody.Part.createFormData("imagen_usuarioCultivo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
                 RequestBody usuario = RequestBody
                         .create(MediaType.parse("text/plain"), "1");
 
@@ -202,7 +197,7 @@ public class RespuestaFragment extends Fragment {
                     public void onFailure(Call<HistorialGeneralRegistro> call, Throwable t) {
                         Log.e("Error", t.toString());
                     }
-                });
+                });*/
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -233,7 +228,7 @@ public class RespuestaFragment extends Fragment {
 
     void connectServer(Bitmap v) {
 
-        String postUrl = "https://8000-dot-10406895-dot-devshell.appspot.com/";
+        String postUrl = "http://192.168.0.111:8000/";
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
@@ -348,16 +343,45 @@ public class RespuestaFragment extends Fragment {
                             Toast.makeText(getContext(), disease, Toast.LENGTH_SHORT).show();
                             Log.e("respuesta", disease);
                             titleTextView.setText(disease);
-                            /*JSONObject obj = new JSONObject(loadJSONFromAsset(getActivity()));
-                            JSONArray dis = obj.getJSONArray(disease);
-                            String causeString = dis.getJSONObject(0).getString("Causes");
-                            String remediesString = dis.getJSONObject(1).getString("Remedies");
-                            causeTextView.setText(causeString);
-                            remediesTextView.setText(remediesString);*/
+
+                            Uri imagen = getImageUri(getActivity(), bitmap);
+
+                            File file = new File(getRealPathFromURI(imagen));
+
+
+                            RequestBody usuario = RequestBody.create(MediaType.parse("text/plain"), "1");
+                            RequestBody enfermedad = RequestBody.create(MediaType.parse("text/plain"), disease);
+                            RequestBody cultivo = RequestBody.create(MediaType.parse("text/plain"), "1");
+                            RequestBody requestFile = RequestBody.create(MediaType.parse(getContext().getContentResolver().getType(imagen)), file);
+
+
+                            //The gson builder
+                            Gson gson = new GsonBuilder()
+                                    .setLenient()
+                                    .create();
+
+                            Retrofit retrofit = new Retrofit.Builder()
+                                    .baseUrl("http://jalexish54.pythonanywhere.com/")
+                                    .addConverterFactory(GsonConverterFactory.create())
+                                    .build();
+
+                            Servicios service = retrofit.create(Servicios.class);
+
+                            Call<respuesta> llamada = service.uploadImage(usuario, enfermedad, cultivo, requestFile);
+                            llamada.enqueue(new Callback<respuesta>() {
+                                @Override
+                                public void onResponse(Call<respuesta> call, Response<respuesta> response) {
+                                    Log.e("post submitted to API.", response.body().toString());
+                                }
+
+                                @Override
+                                public void onFailure(Call<respuesta> call, Throwable t) {
+
+                                }
+                            });
+
                         } catch (IOException e) {
                             e.printStackTrace();
-                        /*} catch (JSONException e) {
-                            e.printStackTrace();*/
                         }
                     }
                 });
