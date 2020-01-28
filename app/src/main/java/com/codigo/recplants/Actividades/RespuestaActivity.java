@@ -46,6 +46,7 @@ public class RespuestaActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         RespuestaFragment rf = new RespuestaFragment();
+        ProcedimientoFragment pf = new ProcedimientoFragment();
         RespuestaTabAdapter adapter = new RespuestaTabAdapter(getSupportFragmentManager(), this);
         if (i.getBooleanExtra("abrirCamara",true)) {
             rf.muestraCamara = true;
@@ -72,10 +73,11 @@ public class RespuestaActivity extends AppCompatActivity {
             args.putString("causaFromActivityB", cuasa);
             args.putString("prevencionFromActivityB", prevencion);
             rf.setArguments(args);
+            pf.setArguments(args);
         }
         rf.ra = this;
         adapter.addFragment(rf, "Diagnostico");
-        adapter.addFragment(new ProcedimientoFragment(), "Porcedimiento");
+        adapter.addFragment(pf, "Porcedimiento");
         //adapter.addFragment(new PrevencionFragment(), "Prevencion");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

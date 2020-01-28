@@ -375,7 +375,9 @@ public class RespuestaFragment extends Fragment {
                             llamada.enqueue(new Callback<respuesta>() {
                                 @Override
                                 public void onResponse(Call<respuesta> call, Response<respuesta> response) {
-                                    //Log.e("post submitted to API.", response.body().toString());
+                                    Log.e("post submitted to API.", response.body().getDescripcion());
+                                    causeTextView.setText(response.body().getDescripcion());
+                                    cause1TextView.setText(response.body().getCausa());
                                 }
 
                                 @Override

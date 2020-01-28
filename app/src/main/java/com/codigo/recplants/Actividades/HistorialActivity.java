@@ -119,6 +119,10 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
         //Historialgeneral historialgeneral = datos.get(position);
         Intent intent = new Intent(HistorialActivity.this,RespuestaActivity.class);
         intent.putExtra("imagen", datos.get(position).imagen_usuarioCultivo);
+        intent.putExtra("nombre", datos.get(position).getDiagnostico().getAfeccion().getNombre_afeccion());
+        intent.putExtra("descripcion", datos.get(position).getDiagnostico().getAfeccion().getDescripcion_efeccion());
+        intent.putExtra("causa", datos.get(position).getDiagnostico().getAfeccion().getCausa_afeccion());
+        intent.putExtra("prevencion", datos.get(position).getDiagnostico().getAfeccion().getPrevencion_afeccion());
         intent.putExtra("abrirCamara", false);
         startActivity(intent);
     }
