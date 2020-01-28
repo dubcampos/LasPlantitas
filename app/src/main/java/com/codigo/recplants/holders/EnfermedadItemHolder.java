@@ -2,6 +2,7 @@ package com.codigo.recplants.holders;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.codigo.recplants.R;
 
 public class EnfermedadItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public ImageView imagenEnfermedad;
     public TextView nombre_afeccion;
     public CardView cardView;
     Context context;
@@ -18,6 +20,7 @@ public class EnfermedadItemHolder extends RecyclerView.ViewHolder implements Vie
 
     public EnfermedadItemHolder(@NonNull View itemView, Context context,EnfermedadListener enfermedadListener) {
         super(itemView);
+        imagenEnfermedad = itemView.findViewById(R.id.iv_enfermedad);
         nombre_afeccion = itemView.findViewById(R.id.tv_nomEnfer);
         cardView = itemView.findViewById(R.id.cv_enfermedad);
         this.context = context;

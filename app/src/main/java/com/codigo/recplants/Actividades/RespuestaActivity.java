@@ -60,6 +60,8 @@ public class RespuestaActivity extends AppCompatActivity {
             String imagen = bundle.getString("imagen");
             String nombre = bundle.getString("nombre");
             String descripcion = bundle.getString("descripcion");
+            String cuasa = bundle.getString("causa");
+            String prevencion = bundle.getString("prevencion");
             // Creamos un nuevo Bundle
             Bundle args = new Bundle();
 
@@ -67,6 +69,8 @@ public class RespuestaActivity extends AppCompatActivity {
             args.putString("textFromActivityB", imagen);
             args.putString("nombreFromActivityB", nombre);
             args.putString("descripcionFromActivityB", descripcion);
+            args.putString("causaFromActivityB", cuasa);
+            args.putString("prevencionFromActivityB", prevencion);
             rf.setArguments(args);
         }
         rf.ra = this;

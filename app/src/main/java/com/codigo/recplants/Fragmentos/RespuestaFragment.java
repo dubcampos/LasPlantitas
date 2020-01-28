@@ -73,6 +73,7 @@ public class RespuestaFragment extends Fragment {
 
     TextView titleTextView;
     TextView causeTextView;
+    TextView cause1TextView;
     TextView remediesTextView;
 
     public RespuestaFragment() {
@@ -87,14 +88,17 @@ public class RespuestaFragment extends Fragment {
         fragment = view.findViewById(R.id.Img_fragment);
         titleTextView = view.findViewById(R.id.diseaseTitleTextView);
         causeTextView = view.findViewById(R.id.causeTextView);
+        cause1TextView = view.findViewById(R.id.cause1TextView);
         remediesTextView = view.findViewById(R.id.remediesTextView);
 
         if (getArguments() != null) {
             String texto = getArguments().getString("textFromActivityB");
             String nombre = getArguments().getString("nombreFromActivityB");
             String descripcion = getArguments().getString("descripcionFromActivityB");
+            String causas = getArguments().getString("causaFromActivityB");
             titleTextView.setText(nombre);
             causeTextView.setText(descripcion);
+            cause1TextView.setText(causas);
             Glide.with(getContext()).load(texto).into(fragment);
         }
 
@@ -228,7 +232,7 @@ public class RespuestaFragment extends Fragment {
 
     void connectServer(Bitmap v) {
 
-        String postUrl = "http://192.168.0.111:8000/";
+        String postUrl = "http://192.168.0.111:8080/";
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
@@ -371,7 +375,7 @@ public class RespuestaFragment extends Fragment {
                             llamada.enqueue(new Callback<respuesta>() {
                                 @Override
                                 public void onResponse(Call<respuesta> call, Response<respuesta> response) {
-                                    Log.e("post submitted to API.", response.body().toString());
+                                    //Log.e("post submitted to API.", response.body().toString());
                                 }
 
                                 @Override

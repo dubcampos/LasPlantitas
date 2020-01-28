@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.codigo.recplants.clases.afeccion;
 import com.codigo.recplants.holders.EnfermedadItemHolder;
 
@@ -37,6 +38,7 @@ public class EnfermedadAdapter extends RecyclerView.Adapter<EnfermedadItemHolder
 
     @Override
     public void onBindViewHolder(@NonNull EnfermedadItemHolder holder, int position) {
+        Glide.with(context).load(datos.get(position).getImagen_afeccion()).into(holder.imagenEnfermedad);
         holder.nombre_afeccion.setText(datos.get(position).getNombre_afeccion());
 
     }

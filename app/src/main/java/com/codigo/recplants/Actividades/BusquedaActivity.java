@@ -121,7 +121,7 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
 
     void ListaEnfermedades() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://jalexish54.pythonanywhere.com")
+                .baseUrl("http://jalexish54.pythonanywhere.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Servicios inter = retrofit.create(Servicios.class);
@@ -131,7 +131,7 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
         lista.enqueue(new Callback<List<afeccion>>() {
             @Override
             public void onResponse(Call<List<afeccion>> call, Response<List<afeccion>> response) {
-                Log.e("lisya", String.valueOf(response.body().get(0).getNombre_afeccion()));
+                //Log.e("lisya", String.valueOf(response.body().get(0).getNombre_afeccion()));
                 switch (response.code()) {
                     case 200:
                         ListEnfermedad = response.body();
@@ -153,11 +153,14 @@ public class BusquedaActivity extends AppCompatActivity implements EnfermedadIte
     @Override
     public void EnfermedadClick(int position) {
         Toast.makeText(this, "hola", Toast.LENGTH_LONG).show();
-        Log.e("error1", "i");
+        //Log.e("error1", "i");
         ListEnfermedad.get(position);
         Intent intent = new Intent(BusquedaActivity.this, RespuestaActivity.class);
+        intent.putExtra("imagen", ListEnfermedad.get(position).getImagen_afeccion());
         intent.putExtra("nombre", ListEnfermedad.get(position).getNombre_afeccion());
-        intent.putExtra("descripcion", ListEnfermedad.get(position).getCausa_afeccion());
+        intent.putExtra("descripcion", ListEnfermedad.get(position).getDescripcion_efeccion());
+        intent.putExtra("causa", ListEnfermedad.get(position).getCausa_afeccion());
+        intent.putExtra("prevencion", ListEnfermedad.get(position).getPrevencion_afeccion());
         intent.putExtra("abrirCamara", false);
         startActivity(intent);
     }

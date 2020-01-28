@@ -16,23 +16,39 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_enfermedad"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:textAlignment="center"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="10dp"
             android:backgroundTint="@color/colorLima"
             android:foreground="?android:attr/selectableItemBackground" >
 
-            <TextView
-                android:id="@+id/tv_nomEnfer"
-                android:gravity="center"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="25dp"
-                android:textColor="@color/colorBlanco"
-                android:text="TextView" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_enfermedad"
+                    android:scaleType="center"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/tv_nomEnfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/colorBlanco"
+                    android:textSize="25dp" />
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 

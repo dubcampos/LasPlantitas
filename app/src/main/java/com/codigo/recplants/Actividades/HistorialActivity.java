@@ -58,7 +58,7 @@ public class HistorialActivity extends AppCompatActivity implements HistorialIte
                 .build();
 
         Servicios service = retrofit.create(Servicios.class);
-        final Call<List<Historialgeneral>>  historial = service.obtenerHistorialID(2);
+        final Call<List<Historialgeneral>>  historial = service.obtenerHistorialID(1);
         historial.enqueue(new Callback<List<Historialgeneral>>() {
             @Override
             public void onResponse(Call<List<Historialgeneral>> call, Response<List<Historialgeneral>> response) {
