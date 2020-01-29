@@ -32,17 +32,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Remedies:"
+                        android:text="Prevencion:"
                         android:textColor="#424242"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <com.codigo.recplants.clases.JustifyTextView
                         android:id="@+id/remediesTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:textSize="14sp" />
+                        android:layout_marginStart="20dp"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </ScrollView>

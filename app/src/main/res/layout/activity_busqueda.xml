@@ -39,7 +39,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_enfermedad"
             android:layout_width="match_parent"
-            android:layout_height="616dp" />
+            android:layout_height="680dp" />
 
     </LinearLayout>
 
