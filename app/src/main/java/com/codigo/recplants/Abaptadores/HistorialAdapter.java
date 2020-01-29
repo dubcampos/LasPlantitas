@@ -41,7 +41,7 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialItemHolder> 
     public void onBindViewHolder(@NonNull HistorialItemHolder historialItemHolder, int i) {
         Glide.with(context).load(datosHistorial.get(i).getImagen_usuarioCultivo()).into(historialItemHolder.fotoDiagnostico);
         historialItemHolder.enfermedadDiagnostico.setText(datosHistorial.get(i).getDiagnostico().getAfeccion().getNombre_afeccion());
-        historialItemHolder.horaDiagnostico.setText(datosHistorial.get(i).getDiagnostico().getFecha_diagnostico());
+        historialItemHolder.horaDiagnostico.setText(datosHistorial.get(i).getDiagnostico().getHora_diagnostico());
     }
 
     @Override
